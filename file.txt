@@ -1,0 +1,16 @@
+ START 1000h
+ST LDA N                загружаю в регистр значение N     
+   STA FACT             загружаю значение регистра в FACT  
+LOOP  SUB ONE           отнимаю 1 из регистра
+      STA N             загружаю значение регистр в N
+      JZ ENDLOOP        
+      LDA FACT          загружаю в регистр значение FACT
+      MUL N             умножаю регистр на N
+      STA FACT          загружаю в FACT значение регистра 
+      LDA N             загружаю в регистр значение N
+      JMP LOOP  
+ENDLOOP HLT
+N WORD 5
+ONE WORD 1
+FACT RESW 1
+      END ST
